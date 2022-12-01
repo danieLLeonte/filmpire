@@ -33,7 +33,7 @@ const MovieInformation = () => {
 
   useEffect(() => {
     setIsMovieWatchlisted(!!watchlistMovies?.results?.find((movie) => movie?.id ===  data?.id));
-  }, [favoriteMovies, data]);
+  }, [watchlistMovies, data]);
 
   const addToFavorites = async () => {
     await axios.post(`https://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, {
